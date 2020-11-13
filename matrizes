@@ -1,4 +1,4 @@
-'''Desafio:: criar uma matriz de 3x4 de numeros reais e depois exibir o elemento do canto superiorr
+'''Desafio:: criar uma matriz de 3x4 de numeros inteiros e depois exibir o elemento do canto superiorr
 esquerdo e do canto inferior direito'''
 # foi criado um sistema que recebe tais numeros reais, verifica e trata os possiveis erros e uma saída
 #de maneira organizada em forma de matriz conforme mostra o output abaixo
