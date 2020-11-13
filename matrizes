@@ -1,0 +1,36 @@
+'''Desafio:: criar uma matriz de 3x4 de numeros reais e depois exibir o elemento do canto superiorr
+esquerdo e do canto inferior direito'''
+# foi criado um sistema que recebe tais numeros reais, verifica e trata os possiveis erros e uma saída
+#de maneira organizada em forma de matriz conforme mostra o output abaixo
+#  1   []   []   []
+
+# []   []   []   []
+
+# []   []   []   12
+
+
+matriz = [
+    ['a1','b1','c1','d1'],
+    ['a2','b2','c2','d2'],
+    ['a3','b3','c3','d3']
+]
+i = 0 
+j = 0
+char = '[]'
+while i < 3:
+    while j < 4:
+        try: 
+            matriz[i][j]=int(input(f'Digite um numero real para posição linha {i+1}/coluna {j+1}: '))
+            j+=1
+        except:
+            print('Digite um numero valido')
+    j=0          
+    i +=1        
+
+for i in range(3):
+    for j in range(4):
+        if i == 0 and j == 0 or i == 2 and j == 3:
+            print(f'{str(matriz[i][j]):>5}',end='')
+        else:
+            print(f'{char:>5}', end='')            
+    print('\n')
