@@ -35,11 +35,7 @@ O arquivo de entrada deve ser lido uma única vez, e os dados armazenados em mem
   principal.
 Recursos adicionais: opcionalmente, desenvolva as seguintes funcionalidades:
 
-Ordenar os usuários pelo percentual de espaço ocupado;
-Mostrar apenas os n primeiros em uso, definido pelo usuário;
-
-Gerar a saída numa página html;
-Criar o programa que lê as pastas e gera o arquivo inicial;'''
+Ordenar os usuários pelo percentual de espaço ocupado;'''
 
 usuario = []
 valores =[]
@@ -81,8 +77,15 @@ def principal():
             #criacao do dicionario
             for chave, valor in zip(usuario,valores):
                 dicionario[chave] = valor
+
+            #organiza os valores em ordem de espaço utilizado e retorna dicionario organizado
+            organizado = (list(dicionario.items()))
+            organizado.sort(key=lambda x: x[1], reverse=True)
+            dicionario.clear()
+            for valor in organizado:
+                dicionario[valor[0]] = valor[1]
             
-            
+
         with open('projeto 1/relatorio.txt','w') as w:
             w.write(cabecalho)
             n=1
@@ -94,7 +97,7 @@ def principal():
                     w.write(str(linha))
                     w.write('\n')
                     n+=1
-              
+            w.write(f'\nEspaço total ocupado: {valortotal:.2f} MB\nEspaço médio ocupado: {(valortotal/(n-1)):.2f}  MB')  
     except:
         print('Não foi possivel localizar o arquivo selecionado.')
 
